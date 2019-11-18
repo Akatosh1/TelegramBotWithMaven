@@ -1,9 +1,9 @@
-package java.commands;
+package commands;
 
-import  java.Main;
+import commands.Main;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-import java.commands.Command;
+import commands.Command;
 
 public class HelpCommand implements Command {
 

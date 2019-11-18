@@ -1,7 +1,7 @@
-package java.commands.ThingsListCommands;
+package commands.ThingsListCommands;
 
-import java.Main;
-import java.commands.Command;
+import commands.Main;
+import commands.Command;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 public class ClearListCommand implements Command {

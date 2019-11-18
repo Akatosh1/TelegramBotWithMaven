@@ -1,6 +1,6 @@
-package java.commands;
+package commands;
 
-import java.Main;
+import commands.Main;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 public interface Command {
