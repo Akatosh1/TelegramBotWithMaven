@@ -1,7 +1,7 @@
-package company.commands.ThingsListCommands;
+package com.company.commands.ThingsListCommands;
 
-import company.Main;
-import company.commands.Command;
+import com.company.Main;
+import com.company.commands.Command;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 public class AddThingCommand implements Command {

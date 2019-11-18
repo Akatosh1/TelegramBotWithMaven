@@ -1,20 +1,20 @@
-package company;
+package com.company;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import company.commands.BalanceCommands.AddBalanceCommand;
-import company.commands.BalanceCommands.DecreaseBalanceCommand;
-import company.commands.BalanceCommands.ResetBalanceCommand;
-import company.commands.BalanceCommands.ShowBalanceCommand;
-import company.commands.Command;
-import company.commands.HelpCommand;
-import company.commands.ResetAllCommand;
-import company.commands.ThingsListCommands.AddThingCommand;
-import company.commands.ThingsListCommands.ClearListCommand;
-import company.commands.ThingsListCommands.DeleteThingCommand;
-import company.commands.ThingsListCommands.ShowListCommand;
+import com.company.commands.BalanceCommands.AddBalanceCommand;
+import com.company.commands.BalanceCommands.DecreaseBalanceCommand;
+import com.company.commands.BalanceCommands.ResetBalanceCommand;
+import com.company.commands.BalanceCommands.ShowBalanceCommand;
+import com.company.commands.Command;
+import com.company.commands.HelpCommand;
+import com.company.commands.ResetAllCommand;
+import com.company.commands.ThingsListCommands.AddThingCommand;
+import com.company.commands.ThingsListCommands.ClearListCommand;
+import com.company.commands.ThingsListCommands.DeleteThingCommand;
+import com.company.commands.ThingsListCommands.ShowListCommand;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;

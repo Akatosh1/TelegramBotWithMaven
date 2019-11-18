@@ -1,6 +1,6 @@
-package company.commands;
+package com.company.commands;
 
-import company.Main;
+import com.company.Main;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 public class HelpCommand implements Command{

@@ -1,7 +1,7 @@
-package company.commands.BalanceCommands;
+package com.company.commands.BalanceCommands;
 
-import company.Main;
-import company.commands.Command;
+import com.company.Main;
+import com.company.commands.Command;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 public class ResetBalanceCommand implements Command {

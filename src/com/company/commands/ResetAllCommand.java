@@ -1,8 +1,8 @@
-package company.commands;
+package com.company.commands;
 
-import company.Main;
-import company.commands.BalanceCommands.ResetBalanceCommand;
-import company.commands.ThingsListCommands.ClearListCommand;
+import com.company.Main;
+import com.company.commands.BalanceCommands.ResetBalanceCommand;
+import com.company.commands.ThingsListCommands.ClearListCommand;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 public class ResetAllCommand implements Command {
