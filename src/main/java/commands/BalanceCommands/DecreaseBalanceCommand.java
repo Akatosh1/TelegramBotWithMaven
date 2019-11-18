@@ -1,7 +1,7 @@
-package com.company.commands.BalanceCommands;
+package java.commands.BalanceCommands;
 
-import com.company.Main;
-import com.company.commands.Command;
+import java.Main;
+import java.commands.Command;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 public class DecreaseBalanceCommand implements Command {

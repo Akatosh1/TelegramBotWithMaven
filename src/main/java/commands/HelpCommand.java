@@ -1,9 +1,11 @@
-package com.company.commands;
+package java.commands;
 
-import com.company.Main;
+import  java.Main;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-public class HelpCommand implements Command{
+import java.commands.Command;
+
+public class HelpCommand implements Command {
 
     @Override
     public String getDescription() {

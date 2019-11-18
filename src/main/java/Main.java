@@ -1,20 +1,16 @@
-package com.company;
+package java;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import com.company.commands.BalanceCommands.AddBalanceCommand;
-import com.company.commands.BalanceCommands.DecreaseBalanceCommand;
-import com.company.commands.BalanceCommands.ResetBalanceCommand;
-import com.company.commands.BalanceCommands.ShowBalanceCommand;
-import com.company.commands.Command;
-import com.company.commands.HelpCommand;
-import com.company.commands.ResetAllCommand;
-import com.company.commands.ThingsListCommands.AddThingCommand;
-import com.company.commands.ThingsListCommands.ClearListCommand;
-import com.company.commands.ThingsListCommands.DeleteThingCommand;
-import com.company.commands.ThingsListCommands.ShowListCommand;
+import java.commands.BalanceCommands.AddBalanceCommand;
+import java.commands.BalanceCommands.DecreaseBalanceCommand;
+import java.commands.BalanceCommands.ResetBalanceCommand;
+import java.commands.BalanceCommands.ShowBalanceCommand;
+import java.commands.Command;
+import java.commands.HelpCommand;
+import java.commands.ResetAllCommand;
+import java.commands.ThingsListCommands.AddThingCommand;
+import java.commands.ThingsListCommands.ClearListCommand;
+import java.commands.ThingsListCommands.DeleteThingCommand;
+import java.commands.ThingsListCommands.ShowListCommand;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
@@ -22,6 +18,10 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Main extends TelegramLongPollingBot {

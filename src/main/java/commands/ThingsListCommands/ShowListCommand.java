@@ -1,7 +1,7 @@
-package com.company.commands.ThingsListCommands;
+package java.commands.ThingsListCommands;
 
-import com.company.Main;
-import com.company.commands.Command;
+import java.Main;
+import java.commands.Command;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
 public class ShowListCommand implements Command {
