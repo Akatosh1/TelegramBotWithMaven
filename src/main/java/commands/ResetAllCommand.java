@@ -1,11 +1,8 @@
 package commands;
 
-import commands.Main;
 import commands.BalanceCommands.ResetBalanceCommand;
 import commands.ThingsListCommands.ClearListCommand;
 import org.telegram.telegrambots.meta.api.objects.Message;
-
-import commands.Command;
 
 public class ResetAllCommand implements Command {
     @Override

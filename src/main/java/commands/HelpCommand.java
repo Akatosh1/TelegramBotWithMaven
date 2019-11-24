@@ -3,7 +3,6 @@ package commands;
 import commands.Main;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-import commands.Command;
 
 public class HelpCommand implements Command {
 
