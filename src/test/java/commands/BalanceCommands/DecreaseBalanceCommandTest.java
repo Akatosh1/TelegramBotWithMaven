@@ -5,8 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-import static org.junit.Assert.*;
-
 public class DecreaseBalanceCommandTest {
 
     @Test
@@ -31,7 +29,6 @@ public class DecreaseBalanceCommandTest {
                 return 0L;
             }
         };
-        Assert.assertEquals(message.getText(), "/cost");
         decreaseBalanceCommand.execute(message, main);
         Assert.assertEquals(main.condition, "diffBalance");
     }

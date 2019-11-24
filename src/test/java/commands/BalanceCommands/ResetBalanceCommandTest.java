@@ -5,8 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-import static org.junit.Assert.*;
-
 public class ResetBalanceCommandTest {
 
     @Test
@@ -31,7 +29,6 @@ public class ResetBalanceCommandTest {
                 return 0L;
             }
         };
-        Assert.assertEquals(message.getText(), "/resetBalance");
         main.balance = 1;
         resetBalanceCommand.execute(message, main);
         Assert.assertEquals(main.balance, 0);

@@ -1,12 +1,9 @@
 package commands.ThingsListCommands;
 
-import commands.BalanceCommands.AddBalanceCommand;
 import commands.Main;
 import org.junit.Assert;
 import org.junit.Test;
 import org.telegram.telegrambots.meta.api.objects.Message;
-
-import static org.junit.Assert.*;
 
 public class AddThingCommandTest {
 
@@ -32,7 +29,6 @@ public class AddThingCommandTest {
                 return 0L;
             }
         };
-        Assert.assertEquals(message.getText(), "/add");
         addThingCommand.execute(message, main);
         Assert.assertEquals(main.condition, "addThing");
     }

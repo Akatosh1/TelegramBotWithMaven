@@ -5,7 +5,6 @@ import org.junit.Test;
 import commands.Main;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-import static org.junit.Assert.*;
 
 public class AddBalanceCommandTest {
 
@@ -23,15 +22,10 @@ public class AddBalanceCommandTest {
         Main main = new Main();
         Message message = new Message(){
             @Override
-            public String getText() {
-                return "/profit";
-            }
+            public String getText() { return "/profit"; }
             @Override
-            public Long getChatId() {
-                return 0L;
-            }
+            public Long getChatId() { return 0L; }
         };
-        Assert.assertEquals(message.getText(), "/profit");
         addBalanceCommand.execute(message, main);
         Assert.assertEquals(main.condition, "addBalance");
     }

@@ -5,8 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.telegram.telegrambots.meta.api.objects.Message;
 
-import static org.junit.Assert.*;
-
 public class ClearListCommandTest {
 
     @Test
@@ -31,9 +29,7 @@ public class ClearListCommandTest {
                 return 0L;
             }
         };
-        Assert.assertEquals(message.getText(), "/clearList");
         main.thingsList.add("thing");
-        Assert.assertEquals(main.thingsList.size(), 1);
         clearListCommand.execute(message, main);
         Assert.assertEquals(main.thingsList.size(), 0);
     }
