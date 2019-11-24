@@ -31,6 +31,6 @@ public class ResetBalanceCommandTest {
         };
         main.balance = 1;
         resetBalanceCommand.execute(message, main);
-        Assert.assertEquals(main.balance, 0);
+        Assert.assertEquals(0, main.balance);
     }
 }

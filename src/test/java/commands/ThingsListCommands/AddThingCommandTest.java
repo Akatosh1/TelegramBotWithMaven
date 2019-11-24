@@ -30,6 +30,6 @@ public class AddThingCommandTest {
             }
         };
         addThingCommand.execute(message, main);
-        Assert.assertEquals(main.condition, "addThing");
+        Assert.assertEquals("addThing", main.condition);
     }
 }

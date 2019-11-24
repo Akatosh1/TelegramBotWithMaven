@@ -30,6 +30,6 @@ public class DeleteThingCommandTest {
             }
         };
         deleteThingCommand.execute(message, main);
-        Assert.assertEquals(main.condition, "delThing");
+        Assert.assertEquals("delThing", main.condition);
     }
 }

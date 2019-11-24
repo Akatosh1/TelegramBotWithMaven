@@ -28,13 +28,13 @@ public class ResetAllCommandTest {
                 return 0L;
             }
         };
-        Assert.assertEquals(message.getText(), "/resetAll");
+        Assert.assertEquals("/resetAll", message.getText());
         main.thingsList.add("thing");
         main.balance = 1;
         main.condition = "something";
         resetAllCommand.execute(message, main);
-        Assert.assertEquals(main.thingsList.size(), 0);
-        Assert.assertEquals(main.balance, 0);
-        Assert.assertEquals(main.condition, "");
+        Assert.assertEquals(0, main.thingsList.size());
+        Assert.assertEquals(0, main.balance);
+        Assert.assertEquals("", main.condition);
     }
 }

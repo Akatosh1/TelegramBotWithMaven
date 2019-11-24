@@ -27,6 +27,6 @@ public class AddBalanceCommandTest {
             public Long getChatId() { return 0L; }
         };
         addBalanceCommand.execute(message, main);
-        Assert.assertEquals(main.condition, "addBalance");
+        Assert.assertEquals("addBalance", main.condition);
     }
 }

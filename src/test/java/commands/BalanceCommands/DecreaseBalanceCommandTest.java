@@ -30,6 +30,6 @@ public class DecreaseBalanceCommandTest {
             }
         };
         decreaseBalanceCommand.execute(message, main);
-        Assert.assertEquals(main.condition, "diffBalance");
+        Assert.assertEquals("diffBalance", main.condition);
     }
 }

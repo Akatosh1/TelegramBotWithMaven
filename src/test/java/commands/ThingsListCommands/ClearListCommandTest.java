@@ -31,6 +31,6 @@ public class ClearListCommandTest {
         };
         main.thingsList.add("thing");
         clearListCommand.execute(message, main);
-        Assert.assertEquals(main.thingsList.size(), 0);
+        Assert.assertEquals(0, main.thingsList.size());
     }
 }

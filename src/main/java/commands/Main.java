@@ -69,10 +69,6 @@ public class Main extends TelegramLongPollingBot {
                 return;
             }
         }
-        if (condition.equals("removeBalance")) {
-            balance -= Integer.parseInt(message.getText());
-            sendMsg(message, "Баланс уменьшен");
-        }
         if (condition.equals("addBalance")) {
             try {
                 balance += Integer.parseInt(message.getText());
