@@ -15,6 +15,7 @@ public class AddThingCommand implements Command {
         if (telegram.condition.equals("")) {
             telegram.sendMsg(message, "введите название продукта");
             telegram.condition = "addThing";
+            telegram.hasKeyboard = false;
         }
     }
 }

@@ -14,10 +14,13 @@ import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMarkup;
+import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.InlineKeyboardButton;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -26,6 +29,7 @@ public class Main extends TelegramLongPollingBot {
     public static Map<String, Command> commandDict = new HashMap<>();
     public String condition = "";
     public int balance = 0;
+    public boolean hasKeyboard = false;
     public ArrayList<String> thingsList = new ArrayList<>();
 
     public static void main(String[] args) {
@@ -58,6 +62,30 @@ public class Main extends TelegramLongPollingBot {
         Message message = update.getMessage();
         if (message != null && message.hasText()) {
             onMessageReceived(message);
+            if (message.getText().equals("Hello")){
+                hasKeyboard = true;
+            }
+            if (hasKeyboard){
+                try {
+                    execute(sendInlineKeyBoardMessage(update.getMessage().getChatId()));
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
+        }else if(update.hasCallbackQuery()) {
+            SendMessage sendMessage = new SendMessage().setText(
+                    update.getCallbackQuery().getData())
+                    .setChatId(update.getCallbackQuery().getMessage().getChatId());
+            Message callbackMessage = update.getCallbackQuery().getMessage();
+            String messageText = sendMessage.getText();
+            commandDict.get(messageText).execute(callbackMessage, this);
+            if (hasKeyboard){
+                try {
+                    execute(sendInlineKeyBoardMessage(update.getCallbackQuery().getMessage().getChatId()));
+                } catch (TelegramApiException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 
@@ -77,16 +105,19 @@ public class Main extends TelegramLongPollingBot {
                 sendMsg(message, "Вы ввели не число!");
             }
             condition = "";
+            hasKeyboard = true;
         }
         if (condition.equals("addThing")) {
             thingsList.add(message.getText());
             sendMsg(message, "Продукт добавлен в список");
             condition = "";
+            hasKeyboard = true;
         }
         if (condition.equals("delThing")) {
             thingsList.remove(message.getText());
             sendMsg(message, "Продукт удален из списка");
             condition = "";
+            hasKeyboard = true;
         }
         if (condition.equals("diffBalance")) {
             try {
@@ -96,6 +127,7 @@ public class Main extends TelegramLongPollingBot {
                 sendMsg(message, "Вы ввели не число");
             }
             condition = "";
+            hasKeyboard = true;
         }
     }
 
@@ -109,6 +141,49 @@ public class Main extends TelegramLongPollingBot {
         } catch (TelegramApiException exc) {
             exc.printStackTrace();
         }
+    }
+
+    public static SendMessage sendInlineKeyBoardMessage(long chatId) {
+        InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
+        InlineKeyboardButton inlineKeyboardButton1 = new InlineKeyboardButton();
+        InlineKeyboardButton inlineKeyboardButton2 = new InlineKeyboardButton();
+        InlineKeyboardButton inlineKeyboardButton3 = new InlineKeyboardButton();
+        InlineKeyboardButton inlineKeyboardButton4 = new InlineKeyboardButton();
+        InlineKeyboardButton inlineKeyboardButton5 = new InlineKeyboardButton();
+        InlineKeyboardButton inlineKeyboardButton6 = new InlineKeyboardButton();
+        inlineKeyboardButton1.setText("/add");
+        inlineKeyboardButton2.setText("/del");
+        inlineKeyboardButton3.setText("/profit");
+        inlineKeyboardButton4.setText("/cost");
+        inlineKeyboardButton5.setText("/list");
+        inlineKeyboardButton6.setText("/balance");
+        inlineKeyboardButton1.setCallbackData("/add");
+        inlineKeyboardButton2.setCallbackData("/del");
+        inlineKeyboardButton3.setCallbackData("/profit");
+        inlineKeyboardButton4.setCallbackData("/cost");
+        inlineKeyboardButton5.setCallbackData("/list");
+        inlineKeyboardButton6.setCallbackData("/balance");
+        List<InlineKeyboardButton> keyboardButtonsRow1 = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtonsRow2 = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtonsRow3 = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtonsRow4 = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtonsRow5 = new ArrayList<>();
+        List<InlineKeyboardButton> keyboardButtonsRow6 = new ArrayList<>();
+        keyboardButtonsRow1.add(inlineKeyboardButton1);
+        keyboardButtonsRow2.add(inlineKeyboardButton2);
+        keyboardButtonsRow3.add(inlineKeyboardButton3);
+        keyboardButtonsRow4.add(inlineKeyboardButton4);
+        keyboardButtonsRow5.add(inlineKeyboardButton5);
+        keyboardButtonsRow6.add(inlineKeyboardButton6);
+        List<List<InlineKeyboardButton>> rowList = new ArrayList<>();
+        rowList.add(keyboardButtonsRow1);
+        rowList.add(keyboardButtonsRow2);
+        rowList.add(keyboardButtonsRow3);
+        rowList.add(keyboardButtonsRow4);
+        rowList.add(keyboardButtonsRow5);
+        rowList.add(keyboardButtonsRow6);
+        inlineKeyboardMarkup.setKeyboard(rowList);
+        return new SendMessage().setChatId(chatId).setText("Команды").setReplyMarkup(inlineKeyboardMarkup);
     }
 
     @Override

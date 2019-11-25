@@ -15,6 +15,7 @@ public class DeleteThingCommand implements Command {
         if (telegram.condition.equals("")) {
             telegram.sendMsg(message, "введите название продукта");
             telegram.condition = "delThing";
+            telegram.hasKeyboard = false;
         }
     }
 }

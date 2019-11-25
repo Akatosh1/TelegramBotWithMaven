@@ -16,6 +16,7 @@ public class AddBalanceCommand implements Command {
         if (telegram.condition.equals("")) {
             telegram.sendMsg(message,"введите сумму которую хотите добавить");
             telegram.condition = "addBalance";
+            telegram.hasKeyboard = false;
         }
     }
 }

@@ -15,6 +15,7 @@ public class DecreaseBalanceCommand implements Command {
         if (telegram.condition.equals("")) {
             telegram.sendMsg(message, "введите сумму которую хотите вычесть");
             telegram.condition = "diffBalance";
+            telegram.hasKeyboard = false;
         }
     }
 }
