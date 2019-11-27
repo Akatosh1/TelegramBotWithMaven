@@ -99,7 +99,7 @@ public class Main extends TelegramLongPollingBot {
         }
         if (condition.equals("addBalance")) {
             try {
-                balance += Integer.parseInt(message.getText());
+                balance += Math.abs(Integer.parseInt(message.getText()));
                 sendMsg(message, "Баланс увеличен");
             } catch (Exception exc) {
                 sendMsg(message, "Вы ввели не число!");
@@ -121,7 +121,7 @@ public class Main extends TelegramLongPollingBot {
         }
         if (condition.equals("diffBalance")) {
             try {
-                balance -= Integer.parseInt(message.getText());
+                balance -= Math.abs(Integer.parseInt(message.getText()));
                 sendMsg(message, "Баланс уменьшен");
             } catch (Exception exc) {
                 sendMsg(message, "Вы ввели не число");
