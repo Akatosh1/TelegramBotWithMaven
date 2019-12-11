@@ -1,0 +1,1 @@
+bot: java -jar out/artifacts/artifactid_jar/artifactid.jar
